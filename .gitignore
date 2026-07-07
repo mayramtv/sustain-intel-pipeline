@@ -1,0 +1,10 @@
+sust_env/
+__pycache__/
+.ipynb_checkpoints/
+data/CompaniesLinks.csv
+data/CompaniesSoup.csv
+data/SustainabilityLinks.csv
+data/SustainabilityRelatedWords.csv
+data/TopCompanies.csv
+SP_Copy1.ipynb
+requirements_full.txt
