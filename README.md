@@ -1,4 +1,5 @@
-# Sustainability Data Collection & NLP Pipeline
+# Corporate Sustainability Intelligence Pipeline
+## Sustainability Data Collection & NLP Pipeline
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![Project Status](https://img.shields.io/badge/status-research%20project-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
