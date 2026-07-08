@@ -1,4 +1,7 @@
 # Sustainability Data Collection & NLP Pipeline
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![Project Status](https://img.shields.io/badge/status-research%20project-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 > An end-to-end data collection and Natural Language Processing (NLP) pipeline that automatically gathers sustainability-related information from major U.S. companies, cleans and analyzes the collected text, and generates visual insights through word frequency analysis and word clouds.
 
@@ -39,23 +42,40 @@ The resulting pipeline demonstrates how raw web content can be transformed into 
 
 ```mermaid
 flowchart TD
-    A([Corporate Websites]) --> B[Selenium Web Scraping]
-    B --> C[HTML Extraction]
-    C --> D[Text Cleaning]
-    D --> E[NLP Processing]
-    E --> F[Word Frequency Analysis]
-    F --> G[Word Cloud Generation]
-    G --> H([CSV / JSON Outputs])
+    %% Nodes Definition
+    A([Corporate Sustainability Websites])
     
-    style A fill:#415a77,stroke:#1b263b,stroke-width:2px,color:#ffffff
-    style H fill:#415a77,stroke:#1b263b,stroke-width:2px,color:#ffffff
-    style B fill:#e07a5f,stroke:#c05c43,stroke-width:2px,color:#ffffff
-    style C fill:#f4a261,stroke:#e76f51,stroke-width:2px,color:#ffffff
-    style D fill:#2a9d8f,stroke:#264653,stroke-width:2px,color:#ffffff
-    style E fill:#457b9d,stroke:#1d3557,stroke-width:2px,color:#ffffff
-    style F fill:#a8dadc,stroke:#457b9d,stroke-width:2px,color:#1d3557
-    style G fill:#ffd166,stroke:#f4a261,stroke-width:2px,color:#000000
+    subgraph Data_Curation["Data Curation"]
+        B[Selenium Web Scraping] --> C[HTML Parsing & Text Extraction]
+        C
+    end
 
+    subgraph Analysis["Analysis & Insights"]
+        D[Text Cleaning] --> E[NLP Processing]
+        E --> F[Word Frequency Analysis]
+        F --> G[Word Cloud Visualization]
+    end
+
+    subgraph Results["Results"]
+        H([Structured Outputs: CSV / JSON])
+    end
+
+    %% Pipeline Connections
+    A --> Data_Curation
+    Data_Curation --> Analysis
+    Analysis --> Results
+
+    classDef scrape fill:#f4a261,stroke:#e76f51,stroke-width:2px,color:#ffffff
+    classDef clean fill:#2a9d8f,stroke:#264653,stroke-width:2px,color:#ffffff
+    classDef process fill:#457b9d,stroke:#1d3557,stroke-width:2px,color:#ffffff
+    classDef result fill:#ffd166,stroke:#f4a261,stroke-width:2px,color:#000000
+    classDef startEnd fill:#415a77,stroke:#1b263b,stroke-width:2px,color:#ffffff
+    
+    class A,H startEnd
+    class B scrape
+    class C,D clean
+    class E,F,G process
+    class H result
 ```
 
 ---
@@ -212,7 +232,11 @@ Using Selenium allowed automated browser interaction while BeautifulSoup provide
 ---
 
 ## Installation
-
+Python version
+```
+Python 3.10+
+```
+Repository cloning and installation
 ```bash
 # Clone repository
 git clone https://github.com/yourusername/sustainability-nlp-pipeline.git
@@ -233,6 +257,13 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+NLTK data may need to be downloaded once:
+```
+import nltk
+
+nltk.download("punkt")
+nltk.download("stopwords")
+```
 ---
 
 ## Notes
