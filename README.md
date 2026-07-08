@@ -6,7 +6,7 @@
 > An end-to-end data collection and Natural Language Processing (NLP) pipeline that automatically gathers sustainability-related information from major U.S. companies, cleans and analyzes the collected text, and generates visual insights through word frequency analysis and word clouds.
 
 <p align="center">
-<img src="./images/hero_pipeline.png" width="800">
+<img src="./images/repo_images/hero_pipeline.png" width="800" alt="Sustainability NLP pipeline overview">
 </p>
 
 ---
@@ -102,10 +102,19 @@ flowchart TD
 ├── report/
 │   └── ProjectPDF.pdf
 ├── data/
-│   ├── cleanText.csv
-│   ├── cleanTextJson.json
+│   ├── CleanText.csv
+│   ├── CleanTextJson.json
 │   └── ...
 ├── images/
+│   ├── repo_images/
+│   │   ├── hero_pipeline.png
+│   │   ├── data_extraction.png
+│   │   ├── text_cleaning.png
+│   │   ├── stop_words_rem.png
+│   │   ├── number_of_pages.png
+│   │   ├── sentiment_analysis.png
+│   │   └── amazon_vs_phillips.png
+│   └── ...
 └── README.md
 ```
 
@@ -123,6 +132,12 @@ The pipeline automatically visits company sustainability pages using Selenium an
 
 Information is parsed using BeautifulSoup to isolate meaningful textual content while removing unnecessary HTML elements.
 
+<p align="center">
+<img src="./images/repo_images/data_extraction.png" width="720" alt="Website response and about-page link extraction examples">
+<br>
+<em>Website responses and extracted links used to locate pages related to sustainability.</em>
+</p>
+
 ---
 
 ### 3. Text Cleaning
@@ -136,6 +151,12 @@ Collected documents undergo preprocessing including:
 - Basic normalization
 
 This creates a clean corpus suitable for analysis.
+
+<p align="center">
+<img src="./images/repo_images/text_cleaning.png" width="720" alt="Company text after filtering sustainability pages and removing stop words">
+<br>
+<em>After filtering pages, stop words are removed so the remaining tokens better support NLP analysis.</em>
+</p>
 
 ---
 
@@ -166,6 +187,12 @@ The processed corpus is visualized through:
 
 These visualizations provide a quick understanding of common sustainability themes across companies.
 
+<p align="center">
+<img src="./images/repo_images/amazon_vs_phillips.png" width="720" alt="Word clouds comparing Amazon and Phillips 66 sustainability-related text">
+<br>
+<em>Word clouds compare the dominant terms extracted from Amazon and Phillips 66 pages.</em>
+</p>
+
 ---
 
 ## Results
@@ -178,6 +205,18 @@ The project successfully demonstrates an end-to-end NLP workflow capable of:
 - Producing visual summaries
 - Exporting reusable datasets
 
+<p align="center">
+<img src="./images/repo_images/number_of_pages.png" width="720" alt="Pie chart showing number of sustainability-related pages by company">
+<br>
+<em>Detected sustainability-related pages varied by company, with Target Corporation and Amazon contributing many of the extracted pages.</em>
+</p>
+
+<p align="center">
+<img src="./images/repo_images/sentiment_analysis.png" width="720" alt="Sentiment analysis table for extracted company sustainability text">
+<br>
+<em>VADER sentiment scores show that the extracted corporate sustainability text is mostly neutral, with positive language present across the analyzed companies.</em>
+</p>
+
 ---
 
 ## Example Outputs
@@ -186,6 +225,7 @@ The project successfully demonstrates an end-to-end NLP workflow capable of:
 - Structured JSON exports
 - Word cloud visualizations
 - Word frequency charts
+- Page-count and sentiment-analysis summaries
 
 ---
 
